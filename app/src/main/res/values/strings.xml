@@ -8,7 +8,8 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="Edit_informations">Edit info</string>
+    <string name="Trip_history">Trip History</string>
+    <string name="Help">Help</string>
+    <string name="Faq">Faq</string>
 </resources>
