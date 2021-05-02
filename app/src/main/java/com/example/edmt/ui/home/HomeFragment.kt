@@ -23,8 +23,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var homeViewModel: HomeViewModel
-    private lateinit var lastLocation: Location
-    private lateinit var fusedLocationClient : FusedLocationProviderClient
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -35,7 +33,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         return root
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
