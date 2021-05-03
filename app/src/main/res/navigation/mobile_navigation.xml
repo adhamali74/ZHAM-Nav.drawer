@@ -6,6 +6,16 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
+        android:id="@+id/Faq1"
+        android:name="com.example.edmt.ui.faq.Faq_Fragment"
+        android:label="@string/Faq1"
+        tools:layout="@layout/fragment_faq" />
+    <fragment
+        android:id="@+id/Setting_1"
+        android:name="com.example.edmt.ui.settings.Settings_Fragment"
+        android:label="@string/Setting_1"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
         android:id="@+id/nav_home"
         android:name="com.example.edmt.ui.home.HomeFragment"
         android:label="@string/menu_home"
@@ -13,13 +23,13 @@
 
     <fragment
         android:id="@+id/Edit_informations"
-        android:name="com.example.edmt.ui.gallery.GalleryFragment"
+        android:name="com.example.edmt.ui.edit_info.Edit_info_Fragment"
         android:label="Edit informations"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_editinfo" />
 
     <fragment
         android:id="@+id/Trip_history"
-        android:name="com.example.edmt.ui.slideshow.SlideshowFragment"
+        android:name="com.example.edmt.ui.trip_history.Trip_history_Fragment"
         android:label="Trip History"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_triphistory" />
 </navigation>

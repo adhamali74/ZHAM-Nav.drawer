@@ -11,5 +11,6 @@
     <string name="Edit_informations">Edit info</string>
     <string name="Trip_history">Trip History</string>
     <string name="Help">Help</string>
-    <string name="Faq">Faq</string>
+    <string name="Faq1">Faq</string>
+    <string name="Setting_1">Settings</string>
 </resources>

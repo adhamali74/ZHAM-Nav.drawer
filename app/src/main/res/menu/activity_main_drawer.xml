@@ -25,7 +25,7 @@
             android:icon="@drawable/ic_baseline_help_outline_24"
             android:title="Help" />
         <item
-            android:id="@+id/Faq"
+            android:id="@+id/Faq1"
             android:icon="@drawable/ic_baseline_question_answer_24"
             android:title="FAQs" />
     </group>
