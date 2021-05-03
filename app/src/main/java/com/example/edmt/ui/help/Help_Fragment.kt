@@ -1,32 +1,33 @@
 package com.example.edmt.ui.help
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.edmt.R
+import com.example.edmt.ui.faq.Faq_ViewModel
 
 class Help_Fragment : Fragment() {
 
-    companion object {
-        fun newInstance() = Help_Fragment()
-    }
-
-    private lateinit var viewModel: Help_ViewModel
+    private lateinit var helpviewmodelZ : Help_ViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_help, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(Help_ViewModel::class.java)
-        // TODO: Use the ViewModel
+        helpviewmodelZ =
+            ViewModelProvider(this).get(Help_ViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_help, container, false)
+        val textView: TextView = root.findViewById(R.id.text_help)
+        helpviewmodelZ.text.observe(viewLifecycleOwner, Observer {
+            textView.text = it
+        })
+        return root
     }
 
 }
