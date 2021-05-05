@@ -6,10 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.edmt.R
-import com.example.edmt.ui.faq.Faq_ViewModel
+
 
 class Help_Fragment : Fragment() {
 
@@ -24,7 +23,7 @@ class Help_Fragment : Fragment() {
             ViewModelProvider(this).get(Help_ViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_help, container, false)
         val textView: TextView = root.findViewById(R.id.text_help)
-        helpviewmodelZ.text.observe(viewLifecycleOwner, Observer {
+        helpviewmodelZ.text.observe(viewLifecycleOwner, {
             textView.text = it
         })
         return root
