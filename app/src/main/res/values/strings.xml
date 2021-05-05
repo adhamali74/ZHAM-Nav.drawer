@@ -21,4 +21,6 @@
     <string name="logout">Logout</string>
     <string name="controls">Controls</string>
     <string name="others">Others</string>
+    <string name="adham_abdelfattah">Adham Abdelfattah</string>
+    <string name="verified">Verified</string>
 </resources>
