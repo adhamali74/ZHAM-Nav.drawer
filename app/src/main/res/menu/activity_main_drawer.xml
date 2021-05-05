@@ -11,22 +11,31 @@
         <item
             android:id="@+id/Edit_informations"
             android:icon="@drawable/ic_baseline_edit_24"
-            android:title="Edit informations" />
+            android:title="@string/edit_informations" />
         <item
             android:id="@+id/Trip_history"
             android:icon="@drawable/ic_baseline_history_24"
-            android:title="Trip History" />
-        <item
-            android:id="@+id/Setting_1"
-            android:icon="@drawable/ic_baseline_settings_applications_24"
-            android:title="Settings" />
+            android:title="@string/trip_history" />
+
         <item
             android:id="@+id/Help"
-            android:icon="@drawable/ic_baseline_help_outline_24"
-            android:title="Help" />
+            android:icon="@drawable/ic_baseline_perm_phone_msg_24"
+            android:title="@string/help" />
         <item
             android:id="@+id/Faq1"
             android:icon="@drawable/ic_baseline_question_answer_24"
-            android:title="FAQs" />
+            android:title="@string/faqs" />
     </group>
+    <item android:title="@string/controls">
+        <menu>
+            <item
+                android:id="@+id/Setting_1"
+                android:icon="@drawable/ic_baseline_settings_24"
+                android:title="@string/settings" />
+            <item
+                android:id="@+id/Logout_1"
+                android:icon="@drawable/ic_baseline_exit_to_app_24"
+                android:title="@string/logout" />
+        </menu>
+    </item>
 </menu>
