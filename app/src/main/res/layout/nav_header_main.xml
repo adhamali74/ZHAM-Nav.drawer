@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:text="@string/verified"
         android:textSize="13dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/green"/>
 
 
 
