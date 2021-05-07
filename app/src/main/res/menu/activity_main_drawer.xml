@@ -27,9 +27,9 @@
                 android:icon="@drawable/ic_baseline_settings_24"
                 android:title="@string/settings" />
             <item
-                android:id="@+id/Logout_1"
+                android:id="@+id/Signout_1"
                 android:icon="@drawable/ic_baseline_exit_to_app_24"
-                android:title="@string/logout" />
+                android:title="@string/signout" />
             <item
                 android:id="@+id/Help"
                 android:icon="@drawable/ic_baseline_perm_phone_msg_24"
