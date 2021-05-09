@@ -38,6 +38,10 @@
                 android:id="@+id/Faq1"
                 android:icon="@drawable/ic_baseline_question_answer_24"
                 android:title="@string/faqs" />
+            <item
+                android:id="@+id/nav_About_Us"
+                android:icon="@drawable/ic_baseline_info_24"
+                android:title="@string/menu_about_us" />
         </menu>
     </item>
 </menu>

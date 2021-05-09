@@ -6,9 +6,9 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/about_us1"
+        android:id="@+id/nav_About_Us"
         android:name="com.example.edmt.ui.about_us.About_us_Fragment"
-        android:label="About us"
+        android:label="@string/menu_about_us"
         tools:layout="@layout/fragment_aboutus" />
     <fragment
         android:id="@+id/Help"

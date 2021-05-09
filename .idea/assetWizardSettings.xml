@@ -303,7 +303,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/perm_phone_msg/baseline_perm_phone_msg_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/info/baseline_info_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -313,7 +313,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_baseline_perm_phone_msg_24" />
+                            <entry key="outputName" value="ic_baseline_info_24" />
                             <entry key="sourceFile" value="C:\Users\Dell\AndroidStudioProjects\EDMT\ZHAM-Nav.drawer" />
                           </map>
                         </option>
