@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.about_us.About_us_Fragment">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How The Application Work?"
+        android:textSize="25dp"
+        tools:ignore="MissingConstraints" />
     <TextView
         android:id="@+id/text_about_us"
         android:layout_width="match_parent"
@@ -18,5 +25,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="The application simply opens the car for the user and starts piling automatically as the application has user's credit card information. its quick and easy way to rent cars online, pick it up at the preferred location by scanning QR-code that sent to the user after booking then the car unlock ,and the key can be found in small device that located in the vehicle by entering pin code that the user received from application after entering the pin code correct ,the device unlocked and user can pick the key that's mean user starts his trip and on the road . when user want to finish the trip, he starts checkout process as it will shows him the nearest garages to select one and drive the car to it and ends the trip there."/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
