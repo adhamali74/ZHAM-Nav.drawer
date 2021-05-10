@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/Help"
         android:name="com.example.edmt.ui.help.Help_Fragment"
-        android:label="@string/Help"
+        android:label="@string/help"
         tools:layout="@layout/fragment_help" />
     <fragment
         android:id="@+id/Faq1"
