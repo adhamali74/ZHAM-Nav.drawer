@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -42,18 +43,19 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
 
-    override fun onDestroy() {
+    override fun onDestroy()
+    {
         fusedLocationProviderClient.removeLocationUpdates(locationCallback)
         super.onDestroy()
     }
 
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
+    {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
+
+
 
         init()
 
@@ -97,6 +99,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             return
         }
         fusedLocationProviderClient.requestLocationUpdates(locationRequest,locationCallback,Looper.myLooper())
+
 
     }
 

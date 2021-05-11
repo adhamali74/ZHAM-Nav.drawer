@@ -31,7 +31,10 @@ android {
         jvmTarget = '1.8'
     }
 
-    
+    viewBinding
+            {
+                enabled=true
+            }
 
 
 }
@@ -63,4 +66,9 @@ dependencies {
 
     //Circle image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+//    slidingUpPanel
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    //noinspection GradleCompatible,GradleCompatible
+    implementation  'com.android.support:design:25.0.0'
 }
