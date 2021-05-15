@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="How The Application Work?"
         android:textSize="25dp"
+        android:textStyle="bold"
         tools:ignore="MissingConstraints" />
     <TextView
         android:id="@+id/text_about_us"

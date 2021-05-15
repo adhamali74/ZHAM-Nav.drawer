@@ -35,15 +35,15 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var homeViewModel: HomeViewModel
-    private var _binding:FragmentHomeBinding? = null
-    private val binding get() = _binding!!
-
-    private lateinit var mapFragment:SupportMapFragment
 
     //Location
     private lateinit var locationRequest:LocationRequest
     private lateinit var locationCallback: LocationCallback
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var mapFragment:SupportMapFragment
+    //binding
+    private var _binding:FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
 
   /* override fun onResume() {
@@ -55,14 +55,11 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
    */
 
-
-
     override fun onDestroy()
     {
         fusedLocationProviderClient.removeLocationUpdates(locationCallback)
         super.onDestroy()
     }
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
     {
@@ -74,11 +71,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-
     // _binding = FragmentHomeBinding.inflate(inflater, container,false)
-
         return root
-
     }
 
    /* override fun onDestroyView() {
