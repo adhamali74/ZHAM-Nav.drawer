@@ -34,7 +34,8 @@
             android:id="@+id/swipe_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="  Swipe Up to Select your Car and Garage"
+            android:text="Swipe Up to Select your Car and Garage"
+            android:gravity="center"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"/>
@@ -50,52 +51,96 @@
             android:id="@+id/select_car_class"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="  Select Car Class"
+            android:text="  "
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold"/>
-        <Spinner
-            android:id="@+id/spinner_1"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/spinner_bg"
-            android:spinnerMode="dropdown"/>
+            sothree:startIconDrawable="@drawable/ic_baseline_category_24"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Select Car Class"
+                android:hint="Classes"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:inputType="none"
+                android:background="@drawable/spinner_bg"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:id="@+id/select_garage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="  Select Nearest Garage"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold"/>
-        <Spinner
-            android:id="@+id/spinner_2"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/spinner_bg"/>
+            sothree:startIconDrawable="@drawable/ic_baseline_house_siding_24"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="  Select Nearest Garage"
+                android:hint="Garages"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:inputType="none"
+                android:background="@drawable/spinner_bg"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:id="@+id/select_car"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="  Select Car"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold"/>
-        <Spinner
-            android:id="@+id/spinner_3"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/spinner_bg"/>
+            sothree:startIconDrawable="@drawable/ic_baseline_directions_car_24"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="  Select Car"
+                android:hint="Cars"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:inputType="none"
+                android:background="@drawable/spinner_bg"/>
 
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lets Start the Ride and Receive your QR-Code to Unlock the Car!"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            android:gravity="center"
+            android:textStyle="bold"/>
         <Button
             android:layout_width="255dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Start the ride"
             android:textStyle="bold" />
+
+
+
 
 
     </LinearLayout>

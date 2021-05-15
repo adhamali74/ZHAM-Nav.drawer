@@ -16,6 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.edmt.R
+import com.example.edmt.databinding.FragmentHomeBinding
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -34,6 +35,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var homeViewModel: HomeViewModel
+    private var _binding:FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var mapFragment:SupportMapFragment
 
@@ -43,6 +46,17 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
 
+  /* override fun onResume() {
+        super.onResume()
+        val classes = resources.getStringArray(R.array.classes)
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item,classes)
+        binding.autoCompleteTextView.setAdapter(arrayAdapter)
+    }
+
+   */
+
+
+
     override fun onDestroy()
     {
         fusedLocationProviderClient.removeLocationUpdates(locationCallback)
@@ -50,19 +64,29 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     }
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
     {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-
-
 
         init()
 
         mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+
+    // _binding = FragmentHomeBinding.inflate(inflater, container,false)
+
         return root
+
     }
+
+   /* override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    */
 
     private fun init() {
         locationRequest = LocationRequest()

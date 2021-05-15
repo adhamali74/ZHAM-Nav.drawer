@@ -41,4 +41,14 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="about_us">About Us</string>
     <string name="support">Support</string>
+
+
+
+    <!-- DROPDOWN BOX -->
+
+    <string-array name="classes">
+        <item>Class A</item>
+        <item>Class B</item>
+        <item>Class C</item>
+    </string-array>
 </resources>
