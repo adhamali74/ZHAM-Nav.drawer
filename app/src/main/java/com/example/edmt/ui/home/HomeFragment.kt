@@ -9,10 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.RelativeLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -41,6 +38,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var slidingUpPanelLayout: SlidingUpPanelLayout
     private lateinit var txt_welcome:TextView
+    private lateinit var autoCompleteTextView:AutoCompleteTextView
 
     //Location
     private lateinit var locationRequest:LocationRequest
@@ -87,6 +85,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             slidingUpPanelLayout = root!!.findViewById(R.id.sliding_layout) as SlidingUpPanelLayout
             txt_welcome = root!!.findViewById(R.id.txt_welcome) as TextView
         Common.setWelcomeMessage(txt_welcome)
+
     }
 
     /* override fun onDestroyView() {
