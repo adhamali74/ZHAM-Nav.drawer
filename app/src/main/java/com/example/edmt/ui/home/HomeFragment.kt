@@ -11,12 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.RelativeLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.edmt.R
 import com.example.edmt.databinding.FragmentHomeBinding
+import com.example.edmt.ui.Common
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -30,11 +32,15 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
+import com.sothree.slidinguppanel.SlidingUpPanelLayout
 
 class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var homeViewModel: HomeViewModel
+
+    private lateinit var slidingUpPanelLayout: SlidingUpPanelLayout
+    private lateinit var txt_welcome:TextView
 
     //Location
     private lateinit var locationRequest:LocationRequest
@@ -67,6 +73,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
         init()
+        initViews(root)
 
         mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -75,12 +82,19 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         return root
     }
 
-   /* override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun initViews(root: View?) {
+
+            slidingUpPanelLayout = root!!.findViewById(R.id.sliding_layout) as SlidingUpPanelLayout
+            txt_welcome = root!!.findViewById(R.id.txt_welcome) as TextView
+        Common.setWelcomeMessage(txt_welcome)
     }
 
-    */
+    /* override fun onDestroyView() {
+         super.onDestroyView()
+         _binding = null
+     }
+
+     */
 
     private fun init() {
         locationRequest = LocationRequest()
