@@ -39,6 +39,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     private lateinit var slidingUpPanelLayout: SlidingUpPanelLayout
     private lateinit var txt_welcome:TextView
     private lateinit var autoCompleteTextView:AutoCompleteTextView
+    private lateinit var status_spinner: Spinner
 
     //Location
     private lateinit var locationRequest:LocationRequest
@@ -46,9 +47,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var mapFragment:SupportMapFragment
     //binding
-    private var _binding:FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+   // private var _binding:FragmentHomeBinding? = null
+    // private val binding get() = _binding!!
 
+  //  val dropDownList = arrayOf("classA","classB","classC")
 
   /* override fun onResume() {
         super.onResume()
@@ -86,7 +88,47 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             txt_welcome = root!!.findViewById(R.id.txt_welcome) as TextView
         Common.setWelcomeMessage(txt_welcome)
 
+        /*
+        val adapter = ArrayAdapter(requireContext(),android.R.layout.simple_spinner_dropdown_item,dropDownList)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        status_spinner.adapter = adapter
+        status_spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long)
+            {
+                if (status_spinner.selectedItemPosition==0){
+                    condition1()
+                }
+                if (status_spinner.selectedItemPosition==1){
+                    condition2()
+                }
+
+                if (status_spinner.selectedItemPosition==2){
+                    condition3()
+                }
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
+
+         */
     }
+    /*
+    private fun condition1(){
+        Toast.makeText(requireContext(),"selected item:"+ status_spinner.selectedItem,Toast.LENGTH_LONG).show()
+    }
+    private fun condition2(){
+        Toast.makeText(requireContext(),"selected item:"+ status_spinner.selectedItem,Toast.LENGTH_LONG).show()
+    }
+    private fun condition3(){
+        Toast.makeText(requireContext(),"Checked Item:",Toast.LENGTH_LONG).show()
+    }
+
+     */
+
 
     /* override fun onDestroyView() {
          super.onDestroyView()
