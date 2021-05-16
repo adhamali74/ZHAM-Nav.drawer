@@ -98,7 +98,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             }
         }
 
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context)
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext())
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -107,13 +107,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             return
         }
         fusedLocationProviderClient.requestLocationUpdates(locationRequest,locationCallback,Looper.myLooper())
@@ -142,15 +136,9 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                                 Manifest.permission.ACCESS_COARSE_LOCATION
                             ) != PackageManager.PERMISSION_GRANTED
                         ) {
-                            // TODO: Consider calling
-                            //    ActivityCompat#requestPermissions
-                            // here to request the missing permissions, and then overriding
-                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                            //                                          int[] grantResults)
-                            // to handle the case where the user grants the permission. See the documentation
-                            // for ActivityCompat#requestPermissions for more details.
+
                             return@setOnMyLocationClickListener
-                        }
+                          }
                         fusedLocationProviderClient.lastLocation
                             .addOnFailureListener { e ->
 
@@ -160,16 +148,16 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                                 val userLatLng = LatLng(location.latitude,location.longitude)
                                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLatLng,18f))
                             }
+                        //Layout
+                        val locationButton = ( mapFragment.requireView()!!
+                            .findViewById<View>("1".toInt())
+                            .parent!! as View).findViewById<View>("2".toInt());
+                        val params = locationButton.layoutParams as RelativeLayout.LayoutParams
+                        params.addRule(RelativeLayout.ALIGN_TOP,0)
+                        params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM,RelativeLayout.TRUE)
+                        params.bottomMargin = 50
                         true
                     }
-                    //Layout
-                    val locationButton = ( mapFragment.requireView()!!
-                        .findViewById<View>("1".toInt())
-                        .parent!! as View).findViewById<View>("2".toInt());
-                    val params = locationButton.layoutParams as RelativeLayout.LayoutParams
-                    params.addRule(RelativeLayout.ALIGN_TOP,0)
-                    params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM,RelativeLayout.TRUE)
-                    params.bottomMargin = 50
 
 
 
@@ -189,10 +177,14 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
 
 
-            }).check()
+            })
+            .check()
+
+
+
 
         try {
-            val success = googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(context,R.raw.uber_maps_style))
+            val success = googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(),R.raw.uber_maps_style))
             if (!success)
                 Log.e("EDMT_ERROR","Style parsing error")
         }catch (e:Resources.NotFoundException)
