@@ -93,6 +93,22 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView).setOnClickListener {
             root.findViewById<LinearLayout>(R.id.class_list).visibility = View.VISIBLE
         }
+        root.findViewById<Button>(R.id.btnClass1).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list).visibility = View.GONE
+        }
+        root.findViewById<Button>(R.id.btnClass2).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list).visibility = View.GONE
+        }
+        root.findViewById<Button>(R.id.btnClass3).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list).visibility = View.GONE
+        }
+        root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView1).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list1).visibility = View.VISIBLE
+        }
+        root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView2).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list2).visibility = View.VISIBLE
+        }
+
 
         // _binding = FragmentHomeBinding.inflate(inflater, container,false)
         return root

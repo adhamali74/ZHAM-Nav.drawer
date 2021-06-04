@@ -90,25 +90,26 @@
                 tools:visibility="gone">
 
                 <Button
+                    android:id="@+id/btnClass1"
                     android:layout_width="255dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Class A"
                     android:textStyle="bold" />
                 <Button
+                    android:id="@+id/btnClass2"
                     android:layout_width="255dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Class B"
                     android:textStyle="bold" />
                 <Button
+                    android:id="@+id/btnClass3"
                     android:layout_width="255dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Class C"
                     android:textStyle="bold" />
-
-
 
             </LinearLayout>
 
@@ -137,6 +138,35 @@
                 android:textStyle="bold"
                 android:inputType="none"
                 android:background="@drawable/spinner_bg"/>
+            <LinearLayout
+                android:id="@+id/class_list1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="gone">
+
+                <Button
+                    android:layout_width="255dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Class A"
+                    android:textStyle="bold" />
+                <Button
+                    android:layout_width="255dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Class B"
+                    android:textStyle="bold" />
+                <Button
+                    android:layout_width="255dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Class C"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
         </com.google.android.material.textfield.TextInputLayout>
         <TextView
@@ -163,6 +193,35 @@
                 android:textStyle="bold"
                 android:inputType="none"
                 android:background="@drawable/spinner_bg"/>
+            <LinearLayout
+                android:id="@+id/class_list2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="gone">
+
+                <Button
+                    android:layout_width="255dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Class A"
+                    android:textStyle="bold" />
+                <Button
+                    android:layout_width="255dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Class B"
+                    android:textStyle="bold" />
+                <Button
+                    android:layout_width="255dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Class C"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
         </com.google.android.material.textfield.TextInputLayout>
 
