@@ -89,24 +89,25 @@
                 android:visibility="gone"
                 tools:visibility="gone">
 
-                <TextView
-                    android:layout_width="match_parent"
+                <Button
+                    android:layout_width="255dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Class A"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="match_parent"
+                    android:textStyle="bold" />
+                <Button
+                    android:layout_width="255dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Class B"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="match_parent"
+                    android:textStyle="bold" />
+                <Button
+                    android:layout_width="255dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Class C"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textStyle="bold" />
+
 
 
             </LinearLayout>
