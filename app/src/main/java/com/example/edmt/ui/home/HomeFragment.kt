@@ -3,6 +3,7 @@ package com.example.edmt.ui.home
 import android.Manifest
 import android.content.pm.PackageManager
 import android.content.res.Resources
+import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
@@ -11,10 +12,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.edmt.R
-import com.example.edmt.databinding.FragmentHomeBinding
 import com.example.edmt.ui.Common
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -30,6 +31,8 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
+import kotlinx.android.synthetic.main.fragment_home.view.*
+
 
 class HomeFragment : Fragment(), OnMapReadyCallback {
 
@@ -46,6 +49,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     private lateinit var locationCallback: LocationCallback
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var mapFragment:SupportMapFragment
+    private lateinit var viewOfLayout: View
+
+
+
     //binding
    // private var _binding:FragmentHomeBinding? = null
     // private val binding get() = _binding!!
@@ -60,14 +67,13 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     }
 
    */
-
     override fun onDestroy()
     {
         fusedLocationProviderClient.removeLocationUpdates(locationCallback)
         super.onDestroy()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
@@ -78,7 +84,17 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-    // _binding = FragmentHomeBinding.inflate(inflater, container,false)
+        /*val classesDropDown = findView
+        val classlist = requireView().findViewById(R.id.class_list) as LinearLayout
+
+        classesDropDown.setOnClickListener{
+        classlist.visibility = View.VISIBLE
+    }   */
+        root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list).visibility = View.VISIBLE
+        }
+
+        // _binding = FragmentHomeBinding.inflate(inflater, container,false)
         return root
     }
 
