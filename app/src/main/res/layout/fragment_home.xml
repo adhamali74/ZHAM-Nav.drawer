@@ -47,189 +47,53 @@
             android:textSize="20dp"
             android:textStyle="bold"/>
         <TextView
-            android:id="@+id/space"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=" "
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/select_car_class"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="  "
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:textStyle="bold"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            sothree:startIconDrawable="@drawable/ic_baseline_category_24"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Select Car Class"
-                android:hint="Classes"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:inputType="none"
-                android:background="@drawable/spinner_bg"/>
-
-            <LinearLayout
-                android:id="@+id/class_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:visibility="gone"
-                tools:visibility="gone">
-
-                <Button
-                    android:id="@+id/btnClass1"
-                    android:layout_width="255dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Class A"
-                    android:textStyle="bold" />
-                <Button
-                    android:id="@+id/btnClass2"
-                    android:layout_width="255dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Class B"
-                    android:textStyle="bold" />
-                <Button
-                    android:id="@+id/btnClass3"
-                    android:layout_width="255dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Class C"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.textfield.TextInputLayout>
-        <TextView
-            android:id="@+id/select_garage"
+            android:id="@+id/emptyspaces"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:gravity="left"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textStyle="bold"/>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            sothree:startIconDrawable="@drawable/ic_baseline_house_siding_24"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="  Select Nearest Garage"
-                android:hint="Garages"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:inputType="none"
-                android:background="@drawable/spinner_bg"/>
-            <LinearLayout
-                android:id="@+id/class_list1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:visibility="gone"
-                tools:visibility="gone">
-
-                <Button
-                    android:id="@+id/btnGarage1"
-                    android:layout_width="255dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Garage A"
-                    android:textStyle="bold" />
-                <Button
-                    android:id="@+id/btnGarage2"
-                    android:layout_width="255dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Garage B"
-                    android:textStyle="bold" />
-                <Button
-                    android:id="@+id/btnGarage3"
-                    android:layout_width="255dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Garage C"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.textfield.TextInputLayout>
         <TextView
-            android:id="@+id/select_car"
+            android:id="@+id/selectCarClasses"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="Select your Car Class"
+            android:gravity="left"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold"/>
-        <com.google.android.material.textfield.TextInputLayout
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/selectGarage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            sothree:startIconDrawable="@drawable/ic_baseline_directions_car_24"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="  Select Car"
-                android:hint="Cars"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:inputType="none"
-                android:background="@drawable/spinner_bg"/>
-            <LinearLayout
-                android:id="@+id/class_list2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:visibility="gone"
-                tools:visibility="gone">
-
-                <Button
-                    android:id="@+id/btnCar1"
-                    android:layout_width="255dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Seat Leon"
-                    android:textStyle="bold" />
-                <Button
-                    android:id="@+id/btnCar2"
-                    android:layout_width="255dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Mercedes AMG"
-                    android:textStyle="bold" />
-                <Button
-                    android:id="@+id/btnCar3"
-                    android:layout_width="255dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Chevrolet Aveo"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:text="Select your Nearest Garage"
+            android:gravity="left"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/selectCars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select your Car"
+            android:gravity="left"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+        <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="match_parent"
@@ -245,7 +109,6 @@
             android:layout_gravity="center"
             android:text="Start the ride"
             android:textStyle="bold" />
-
 
 
 

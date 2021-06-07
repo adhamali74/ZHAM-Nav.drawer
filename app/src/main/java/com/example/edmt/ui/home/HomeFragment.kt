@@ -31,7 +31,9 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.fragment_settings.*
 
 
 class HomeFragment : Fragment(), OnMapReadyCallback {
@@ -84,52 +86,58 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        /*val classesDropDown = findView
-        val classlist = requireView().findViewById(R.id.class_list) as LinearLayout
 
-        classesDropDown.setOnClickListener{
-        classlist.visibility = View.VISIBLE
-    }   */
-
-        root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView).setOnClickListener {
+       /* root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView).setOnClickListener {
             root.findViewById<LinearLayout>(R.id.class_list).visibility = View.VISIBLE
         }
-        root.findViewById<Button>(R.id.btnClass1).setOnClickListener {
-            root.findViewById<LinearLayout>(R.id.class_list).visibility = View.GONE
+
+        */
+
+
+        val classes = arrayOf("Class A","Class B","Class C")
+        val spinner = root.findViewById<Spinner>(R.id.spinner1)
+        spinner?.adapter = activity?.applicationContext?.let { ArrayAdapter(it,R.layout.support_simple_spinner_dropdown_item,classes) } as SpinnerAdapter
+        spinner?.onItemSelectedListener = object : AdapterView .OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long)
+            {
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                println("Error")
+            }
+
         }
-        root.findViewById<Button>(R.id.btnClass2).setOnClickListener {
-            root.findViewById<LinearLayout>(R.id.class_list).visibility = View.GONE
+        val Garage = arrayOf("Garage A","Garage B","Garage C")
+        val spinner1 = root.findViewById<Spinner>(R.id.spinner2)
+        spinner1?.adapter = activity?.applicationContext?.let { ArrayAdapter(it,R.layout.support_simple_spinner_dropdown_item,Garage) } as SpinnerAdapter
+        spinner1?.onItemSelectedListener = object : AdapterView .OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long)
+            {
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                println("Error")
+            }
+
         }
-        root.findViewById<Button>(R.id.btnClass3).setOnClickListener {
-            root.findViewById<LinearLayout>(R.id.class_list).visibility = View.GONE
-        }
-        root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView1).setOnClickListener {
-            root.findViewById<LinearLayout>(R.id.class_list1).visibility = View.VISIBLE
-        }
-        root.findViewById<Button>(R.id.btnGarage1).setOnClickListener {
-            root.findViewById<LinearLayout>(R.id.class_list1).visibility = View.GONE
-        }
-        root.findViewById<Button>(R.id.btnGarage2).setOnClickListener {
-            root.findViewById<LinearLayout>(R.id.class_list1).visibility = View.GONE
-        }
-        root.findViewById<Button>(R.id.btnGarage3).setOnClickListener {
-            root.findViewById<LinearLayout>(R.id.class_list1).visibility = View.GONE
-        }
-        root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView2).setOnClickListener {
-            root.findViewById<LinearLayout>(R.id.class_list2).visibility = View.VISIBLE
-        }
-        root.findViewById<Button>(R.id.btnCar1).setOnClickListener {
-            root.findViewById<LinearLayout>(R.id.class_list2).visibility = View.GONE
-        }
-        root.findViewById<Button>(R.id.btnCar2).setOnClickListener {
-            root.findViewById<LinearLayout>(R.id.class_list2).visibility = View.GONE
-        }
-        root.findViewById<Button>(R.id.btnCar3).setOnClickListener {
-            root.findViewById<LinearLayout>(R.id.class_list2).visibility = View.GONE
+        val Cars = arrayOf("Seat Leon 2019","Chevrolet Aveo 2015","Speranza 2014")
+        val spinner2 = root.findViewById<Spinner>(R.id.spinner3)
+        spinner2?.adapter = activity?.applicationContext?.let { ArrayAdapter(it,R.layout.support_simple_spinner_dropdown_item,Cars) } as SpinnerAdapter
+        spinner2?.onItemSelectedListener = object : AdapterView .OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long)
+            {
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                println("Error")
+            }
+
         }
 
 
-        // _binding = FragmentHomeBinding.inflate(inflater, container,false)
         return root
     }
 
