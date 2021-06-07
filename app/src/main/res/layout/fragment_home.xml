@@ -148,22 +148,25 @@
                 tools:visibility="gone">
 
                 <Button
+                    android:id="@+id/btnGarage1"
                     android:layout_width="255dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Class A"
+                    android:text="Garage A"
                     android:textStyle="bold" />
                 <Button
+                    android:id="@+id/btnGarage2"
                     android:layout_width="255dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Class B"
+                    android:text="Garage B"
                     android:textStyle="bold" />
                 <Button
+                    android:id="@+id/btnGarage3"
                     android:layout_width="255dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Class C"
+                    android:text="Garage C"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -203,22 +206,25 @@
                 tools:visibility="gone">
 
                 <Button
+                    android:id="@+id/btnCar1"
                     android:layout_width="255dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Class A"
+                    android:text="Seat Leon"
                     android:textStyle="bold" />
                 <Button
+                    android:id="@+id/btnCar2"
                     android:layout_width="255dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Class B"
+                    android:text="Mercedes AMG"
                     android:textStyle="bold" />
                 <Button
+                    android:id="@+id/btnCar3"
                     android:layout_width="255dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Class C"
+                    android:text="Chevrolet Aveo"
                     android:textStyle="bold" />
 
             </LinearLayout>

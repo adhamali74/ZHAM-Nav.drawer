@@ -103,15 +103,30 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         root.findViewById<Button>(R.id.btnClass3).setOnClickListener {
             root.findViewById<LinearLayout>(R.id.class_list).visibility = View.GONE
         }
-
         root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView1).setOnClickListener {
             root.findViewById<LinearLayout>(R.id.class_list1).visibility = View.VISIBLE
         }
-
+        root.findViewById<Button>(R.id.btnGarage1).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list1).visibility = View.GONE
+        }
+        root.findViewById<Button>(R.id.btnGarage2).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list1).visibility = View.GONE
+        }
+        root.findViewById<Button>(R.id.btnGarage3).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list1).visibility = View.GONE
+        }
         root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView2).setOnClickListener {
             root.findViewById<LinearLayout>(R.id.class_list2).visibility = View.VISIBLE
         }
-
+        root.findViewById<Button>(R.id.btnCar1).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list2).visibility = View.GONE
+        }
+        root.findViewById<Button>(R.id.btnCar2).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list2).visibility = View.GONE
+        }
+        root.findViewById<Button>(R.id.btnCar3).setOnClickListener {
+            root.findViewById<LinearLayout>(R.id.class_list2).visibility = View.GONE
+        }
 
 
         // _binding = FragmentHomeBinding.inflate(inflater, container,false)
