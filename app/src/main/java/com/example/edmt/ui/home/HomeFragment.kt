@@ -12,9 +12,13 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.edmt.R
 import com.example.edmt.ui.Common
+import com.example.edmt.ui.login.MainViewModel
+import com.example.edmt.ui.login.MainViewModelFactory
+import com.example.edmt.ui.login.repository.Repository
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -22,6 +26,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.gson.Gson
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -32,6 +37,8 @@ import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.fragment_settings.*
+import okhttp3.ResponseBody
+import org.json.JSONArray
 
 
 class HomeFragment : Fragment(), OnMapReadyCallback {
@@ -91,49 +98,72 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
         */
 
-
+/*
         val classes = arrayOf("Class A","Class B","Class C")
         val spinner = root.findViewById<Spinner>(R.id.spinner1)
         spinner?.adapter = activity?.applicationContext?.let { ArrayAdapter(it,R.layout.support_simple_spinner_dropdown_item,classes) } as SpinnerAdapter
         spinner?.onItemSelectedListener = object : AdapterView .OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long)
             {
-
+                println(spinner.selectedItem.toString())
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                println("Error")
+
             }
+        }
+
+ */
+        root.findViewById<RadioButton>(R.id.radio_pirates).setOnClickListener {
 
         }
-        val Garage = arrayOf("Garage A","Garage B","Garage C")
-        val spinner1 = root.findViewById<Spinner>(R.id.spinner2)
-        spinner1?.adapter = activity?.applicationContext?.let { ArrayAdapter(it,R.layout.support_simple_spinner_dropdown_item,Garage) } as SpinnerAdapter
-        spinner1?.onItemSelectedListener = object : AdapterView .OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long)
-            {
-
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                println("Error")
-            }
+        root.findViewById<RadioButton>(R.id.radio_ninjas).setOnClickListener {
 
         }
-        val Cars = arrayOf("Seat Leon 2019","Chevrolet Aveo 2015","Speranza 2014")
-        val spinner2 = root.findViewById<Spinner>(R.id.spinner3)
-        spinner2?.adapter = activity?.applicationContext?.let { ArrayAdapter(it,R.layout.support_simple_spinner_dropdown_item,Cars) } as SpinnerAdapter
-        spinner2?.onItemSelectedListener = object : AdapterView .OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long)
-            {
+       val radioGroup = root.findViewById<RadioGroup>(R.id.GP1)
+        lateinit var radioButton: RadioButton
+        val arrayjs = JSONArray()
+        root.findViewById<Button>(R.id.start_ride).setOnClickListener {
+            val selectedOption: Int = radioGroup!!.checkedRadioButtonId
+            radioButton = root.findViewById(selectedOption)
+            Toast.makeText(requireContext(), radioButton.text, Toast.LENGTH_SHORT).show()
+            println(radioButton.text)
+            lateinit var viewModel: MainViewModel
+            val repository = Repository()
+            val viewModelFactory = MainViewModelFactory(repository)
+            viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+            viewModel.get_cars(30.00306129455566,31.271398428725636,"A")
+            viewModel.myresponse3.observe(viewLifecycleOwner, Observer { response ->
+                if (response.isSuccessful) {
+                    println(response.body()?.get(0))
+                    println(response.body()?.get(1))
 
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                println("Error")
-            }
-
+                } else {
+                    println("8")
+                    Toast.makeText(context, response.message().toString(), Toast.LENGTH_SHORT)
+                        .show()
+                }
+            })
         }
+
+        fun onRadioButtonClicked(view: View) {
+    if (view is RadioButton) {
+        // Is the button now checked?
+        val checked = view.isChecked
+
+        // Check which radio button was clicked
+        when (view.getId()) {
+            R.id.radio_pirates ->
+                if (checked) {
+                  println("class A")
+                }
+            R.id.radio_ninjas ->
+                if (checked) {
+                   println("class B")
+                }
+        }
+    }
+}
 
 
         return root

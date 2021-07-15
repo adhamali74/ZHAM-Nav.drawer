@@ -41,7 +41,7 @@
             android:id="@+id/swipe_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Swipe Up to Select your Car and Garage"
+            android:text="Swipe Up to Select your Car Class"
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="20dp"
@@ -64,42 +64,24 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold"/>
-        <Spinner
-            android:id="@+id/spinner1"
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:spinnerMode="dialog"
-            android:background="@drawable/spinner_bg"/>
-        <TextView
-            android:id="@+id/selectGarage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Select your Nearest Garage"
-            android:gravity="left"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:textStyle="bold"/>
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dialog"
-            android:background="@drawable/spinner_bg"/>
-        <TextView
-            android:id="@+id/selectCars"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Select your Car"
-            android:gravity="left"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:textStyle="bold"/>
-        <Spinner
-            android:id="@+id/spinner3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dialog"
-            android:background="@drawable/spinner_bg"/>
+            android:orientation="vertical"
+            android:id="@+id/GP1">
+            <RadioButton android:id="@+id/radio_pirates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Class A"
+                android:onClick="onRadioButtonClicked"/>
+            <RadioButton android:id="@+id/radio_ninjas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Class B"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
+
+
 
         <TextView
             android:layout_width="match_parent"
@@ -114,7 +96,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Start the ride"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:id="@+id/start_ride"/>
 
 
 

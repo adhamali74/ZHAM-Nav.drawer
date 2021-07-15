@@ -8,14 +8,18 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET">
 
+    </uses-permission>
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EDMT">
+        android:theme="@style/Theme.EDMT"
+        android:name="androidx.multidex.MultiDexApplication" >
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/welcome0">
 
     <fragment
         android:id="@+id/nav_About_Us"
@@ -42,4 +42,61 @@
         android:name="com.example.edmt.ui.trip_history.Trip_history_Fragment"
         android:label="Trip History"
         tools:layout="@layout/fragment_triphistory" />
+    <fragment
+        android:id="@+id/welcome0"
+        android:name="com.example.edmt.Welcome0"
+        android:label="Welcome0" >
+        <action
+            android:id="@+id/action_welcome0_to_welcome1"
+            app:destination="@id/welcome1" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcome1"
+        android:name="com.example.edmt.Welcome1"
+        android:label="Welcome1" >
+        <action
+            android:id="@+id/action_welcome1_to_welcome2"
+            app:destination="@id/welcome2" />
+        <action
+            android:id="@+id/action_welcome1_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcome2"
+        android:name="com.example.edmt.Welcome2"
+        android:label="Welcome2" >
+        <action
+            android:id="@+id/action_welcome2_to_welcome3"
+            app:destination="@id/welcome3" />
+        <action
+            android:id="@+id/action_welcome2_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcome3"
+        android:name="com.example.edmt.Welcome3"
+        android:label="Welcome3" >
+        <action
+            android:id="@+id/action_welcome3_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.edmt.Login"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_login_to_signup"
+            app:destination="@id/signup" />
+        <action
+            android:id="@+id/action_login_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/signup"
+        android:name="com.example.edmt.signup"
+        android:label="signup" >
+        <action
+            android:id="@+id/action_signup_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>
