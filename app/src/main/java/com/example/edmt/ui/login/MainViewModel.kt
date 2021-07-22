@@ -3,9 +3,10 @@ package com.example.edmt.ui.login
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.edmt.ui.login.API.retrofitInstance_ride
 import com.example.edmt.ui.login.model.Login_schema
 import com.example.edmt.ui.login.model.Signup_schema
-import com.example.edmt.ui.login.model.Ride_request
+import com.example.edmt.ui.login.model.trips
 import com.example.edmt.ui.login.model.cars
 import com.example.edmt.ui.login.repository.Repository
 import com.google.gson.JsonArray
@@ -19,7 +20,8 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
     val myresponse : MutableLiveData<Response<Login_schema>> = MutableLiveData()
     val myresponse2 : MutableLiveData<Response<Signup_schema>> = MutableLiveData()
     val myresponse3 : MutableLiveData<Response<JsonArray>> = MutableLiveData()
-
+    val myresponse4 : MutableLiveData<Response<JsonObject>> = MutableLiveData()
+    val myresponse5 : MutableLiveData<Response<ResponseBody>> = MutableLiveData()
 
     fun pushPost(user: Login_schema){
         viewModelScope.launch {
@@ -39,6 +41,22 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
         viewModelScope.launch {
             val response3 = repository.get_cars(lat,long,Class)
             myresponse3.value = response3
+        }
+    }
+
+
+    fun get_class(Class: String){
+        viewModelScope.launch {
+            val response4 = repository.get_class(Class)
+            myresponse4.value = response4
+        }
+    }
+
+
+    fun start_trip(trip: trips){
+        viewModelScope.launch {
+            val response5 = repository.start_trip(trip)
+            myresponse5.value = response5
         }
     }
 

@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.os.Bundle
 import android.os.Looper
+import android.util.JsonToken
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +15,12 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.edmt.R
 import com.example.edmt.ui.Common
 import com.example.edmt.ui.login.MainViewModel
 import com.example.edmt.ui.login.MainViewModelFactory
+import com.example.edmt.ui.login.model.trips
 import com.example.edmt.ui.login.repository.Repository
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -27,6 +30,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.gson.Gson
+import com.google.gson.JsonObject
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -39,6 +43,8 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.fragment_settings.*
 import okhttp3.ResponseBody
 import org.json.JSONArray
+import org.json.JSONObject
+import org.json.JSONTokener
 
 
 class HomeFragment : Fragment(), OnMapReadyCallback {
@@ -122,12 +128,9 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         }
        val radioGroup = root.findViewById<RadioGroup>(R.id.GP1)
         lateinit var radioButton: RadioButton
-        val arrayjs = JSONArray()
         root.findViewById<Button>(R.id.start_ride).setOnClickListener {
             val selectedOption: Int = radioGroup!!.checkedRadioButtonId
             radioButton = root.findViewById(selectedOption)
-            Toast.makeText(requireContext(), radioButton.text, Toast.LENGTH_SHORT).show()
-            println(radioButton.text)
             lateinit var viewModel: MainViewModel
             val repository = Repository()
             val viewModelFactory = MainViewModelFactory(repository)
@@ -135,8 +138,26 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             viewModel.get_cars(30.00306129455566,31.271398428725636,"A")
             viewModel.myresponse3.observe(viewLifecycleOwner, Observer { response ->
                 if (response.isSuccessful) {
-                    println(response.body()?.get(0))
-                    println(response.body()?.get(1))
+                    val jsonArray = JSONTokener(response.body()?.toString()).nextValue() as JSONArray
+                    viewModel.get_class("A")
+                    viewModel.myresponse4.observe(viewLifecycleOwner, Observer { response2 ->
+                        if (response.isSuccessful){
+                            val jsonObject2 = JSONTokener(response2.body().toString()).nextValue() as JSONObject
+                            root.findViewById<RadioButton>(R.id.radio_pirates).text =jsonArray.getJSONObject(1).getString("brand") + " "+ jsonArray.getJSONObject(1).getString("color")+ " Cost : "+ jsonObject2.getString("baseFare")+ " per hour"
+                            root.findViewById<RadioButton>(R.id.radio_ninjas).text = jsonArray.getJSONObject(0).getString("brand") + " "+ jsonArray.getJSONObject(0).getString("color")+ " Cost : "+ jsonObject2.getString("baseFare")+" per hour"
+                            root.findViewById<Button>(R.id.start_ride).text = "Book"
+                            root.findViewById<Button>(R.id.start_ride).setOnClickListener {
+                                val trip = trips("60c500b5f097ca011055e48b", "2021-07-13T15:11", "60edaa9d97bad634245737a3", "60c4ca6bb3cc2c1b7071c021")
+                                viewModel.start_trip(trip)
+                                viewModel.myresponse5.observe(viewLifecycleOwner, {response3 ->
+                                    if (response3.isSuccessful){
+                                        Navigation.findNavController(root).navigate(R.id.action_nav_home_to_ride_select_car)
+                                    }
+                                })
+
+                            }
+                        }
+                    })
 
                 } else {
                     println("8")

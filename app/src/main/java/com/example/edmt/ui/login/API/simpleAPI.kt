@@ -3,6 +3,7 @@ package com.example.edmt.ui.login.API
 import com.example.edmt.ui.login.model.Login_schema
 import com.example.edmt.ui.login.model.Ride_request
 import com.example.edmt.ui.login.model.Signup_schema
+import com.example.edmt.ui.login.model.trips
 import com.example.edmt.ui.login.model.cars
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
@@ -37,4 +38,15 @@ interface simpleAPI {
         @Query("Class") Class:String,
     ): Response<JsonArray>
 
+
+    @GET("get-class")
+    suspend fun get_class(
+        @Query("Class") Class: String,
+    ): Response<JsonObject>
+
+
+    @POST("start-trip")
+    suspend fun start_trip(
+        @Body Post: trips
+    ):Response<ResponseBody>
 }

@@ -79,6 +79,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_login_to_nav_home">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_login_to_signup">
                               <value>
                                 <LayoutPositions />
@@ -113,6 +118,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="ride_select_car">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-180" />
+                            <option name="y" value="939" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="signup">
                     <value>
                       <LayoutPositions>
@@ -121,6 +138,15 @@
                             <option name="x" value="-962" />
                             <option name="y" value="255" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_signup_to_nav_home">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
